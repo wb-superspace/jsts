@@ -17270,7 +17270,12 @@
 
       for (let i = 0; i < array.length; ++i) {
         const sub = array[i];
-        coordinates.push(new Coordinate(...array));
+
+        if (sub.length === 3) {
+          coordinates.push(new Coordinate(sub[0], sub[1], sub[2]));
+        } else {
+          coordinates.push(new Coordinate(sub[0], sub[1]));
+        }
       }
 
       return coordinates;
@@ -32464,7 +32469,7 @@
     return DistanceOp.distance(this, g);
   };
 
-  const version = '2.5.1 (e7ff8c7)';
+  const version = '2.5.1 (25d19a1)';
 
   exports.algorithm = algorithm;
   exports.densify = densify;
